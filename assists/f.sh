@@ -21,6 +21,9 @@ clipboard)
 *tab)
     instantutils open browser
     ;;
+*jump*)
+	search="$(imenu -i 'video search')"
+	instantutils open browser "$(ytscrape $search | jq -r '.[0].url')";;
 *)
     instantutils open browser "$LINK"
     ;;
